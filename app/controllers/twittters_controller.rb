@@ -8,8 +8,13 @@ class TwitttersController < ApplicationController
   end
 
   def create
-    Twittter.create(twittter_params)
-    redirect_to new_twittter_path
+    @twittter = Twittter.new(twittter_params)
+
+    if (@twittter.save)
+      redirect_to home_path
+    else
+      render 'new'
+    end
   end
 
   private
