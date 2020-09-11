@@ -5,6 +5,8 @@
 <% @twittters.each do |t| %>
   <tr>
     <td><%= t.content %></td>
+    <td><%= link_to "ブログを編集する", edit_twittter_path(t.id) %></td>
+
   </tr>
 <% end %>
 </table>
