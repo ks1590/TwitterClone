@@ -1,11 +1,1 @@
-<%= form_with(model: @twittter, local: true) do |form| %>
-    <% if @twittter.errors.any? %>
-        <% @twittter.errors.full_messages.each do |msg| %>
-            <div class='alert alert-danger'><%= msg %></div>        
-        <% end %>       
-    <% end %>
-    <%= form.label :content,"ツイート内容" %><br>
-    <%= form.text_field(:content,{:class => 'form-control'}) %>
-  
-  <%= form.submit("ツイートする",{:class => 'btn btn-primary'}) %>
-<% end %>
+<%= render 'form' %>

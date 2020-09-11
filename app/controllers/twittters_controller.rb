@@ -1,5 +1,5 @@
 class TwitttersController < ApplicationController
-  before_action :set_twittter, only: [:show, :edit, :update]
+  before_action :set_twittter, only: [:show, :edit, :update, :destroy]
   def index
     @twittters = Twittter.all
   end
@@ -30,6 +30,11 @@ class TwitttersController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def destroy
+    @twittter.destroy
+    redirect_to twittters_path, notice:"ツイートを削除しました！"
   end
   
   
