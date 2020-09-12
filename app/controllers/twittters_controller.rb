@@ -25,9 +25,6 @@ class TwitttersController < ApplicationController
     @twittter = Twittter.new(twittter_params)
     render :new if @twittter.invalid?
   end
-
-  def show
-  end
   
   def edit
   end

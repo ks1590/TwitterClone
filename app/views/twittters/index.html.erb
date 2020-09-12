@@ -1,13 +1,12 @@
+<img src="/panel.jpeg" class="profile-panel">
 <div class="row">
-    <div class="col-xs-12">
-        <div class ="jumbotron">
-            HEADER
-        </div>
-    </div>
     <div class="col-xs-3">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <p>プロフィール</p>
+        <div class="panel-footer text-center row">
+            <div class="col-sm-2">
+                <img src="/avatar.png" height="50px" widht="50px">
+            </div>
+            <div class="cpl-sm-10">
+                <h4>プロフィール</h4>
             </div>
         </div>
     </div>
@@ -18,27 +17,34 @@
     <% for @t in @twittters %>
         <div class="panel panel-default post-panel">
             <div class="panel-body row">
-
+                <div class= "col-sm-1">
+                    <img src="/avatar.png" height="40px" widht="40px">
+                </div>
                 <div class= "col-sm-11">
                     <p class="post-content"><%= @t.content %></p>
                 </div>
                 <div class= "col-sm-11">
-                <div class="post-links">
-                    <%= link_to "編集", edit_twittter_path(@t.id) %>
-                    <%= link_to "削除", twittter_path(@t.id), method: :delete ,data: { confirm: '本当に削除してよろしいですか？' } %>
-                    
+                <div class="post-links">                    
+                    <%= link_to edit_twittter_path(@t.id) do %>
+                        <span class="glyphicon glyphicon-pencil g-links" aria-hidden="true"></span>                
+                    <% end %>
+                    <%= link_to twittter_path(@t.id), method: :delete ,data: { confirm: '本当に削除してよろしいですか？' } do %>
+                        <span class="glyphicon glyphicon-trash g-links" aria-hidden="true"></span> 
+                    <% end %>                    
                 </div>
                 </div>
             </div>
-        </div>
-    
+        </div>    
     <% end %>
     </div>
 
     <div class="col-xs-3">
-        <div class="panel panel-default">
+        <div class="panel panel-defaultel">
             <div class="panel-body">
                 <p>＃トレンド</p>
+                <p>test1</p>
+                <p>test2</p>
+                <p>test3</p>
             </div>
         </div>
     </div>
