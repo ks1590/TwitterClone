@@ -1,11 +1,39 @@
-<h1>ツイート一覧</h1>
-<p><%= notice %></p>
-<table>
-  <% @twittters.each do |t| %>
-  <tr>
-    <td><%= t.content %></td>
-    <td><%= link_to "編集する", edit_twittter_path(t.id), :class => 'btn btn-default' %></td>
-    <td><%= link_to '削除する', twittter_path(t.id), method: :delete ,data: { confirm: '本当に削除してよろしいですか？' }, :class => 'btn btn-danger'%></td>
-  </tr>
-<% end %>
-</table>
+<div class="row">
+    <div class="col-xs-12">
+        <div class ="jumbotron">
+            HEADER
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>プロフィール</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+    <p>つぶやき</p>
+    <% for @t in @twittters %>
+    
+    <p><%= notice %></p>
+        <div class="panel panel-default post-panel">
+            <div class="panel-body row">
+                
+                <div class= "col-sm-11">
+                    <p class="post-content"><%= @t.content %></p>
+                </div>
+            </div>
+        </div>
+    
+    <% end %>
+    </div>
+
+    <div class="col-xs-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>＃トレンド</p>
+            </div>
+        </div>
+    </div>
+</div>
