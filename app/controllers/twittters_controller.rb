@@ -10,12 +10,20 @@ class TwitttersController < ApplicationController
 
   def create
     @twittter = Twittter.new(twittter_params)
-
-    if (@twittter.save)
-      redirect_to home_path
+    if params[:back]
+      render :new
     else
-      render 'new'
+      if @twittter.save
+        redirect_to twittters_path, notice: "ツイートしました！"
+      else
+        render :new
+      end
     end
+  end
+
+  def confirm
+    @twittter = Twittter.new(twittter_params)
+    render :new if @twittter.invalid?
   end
 
   def show
@@ -26,7 +34,7 @@ class TwitttersController < ApplicationController
 
   def update
     if @twittter.update(twittter_params)
-      redirect_to home_path, notice: "ブログを編集しました！"
+      redirect_to home_path, notice: "ツイートを編集しました！"
     else
       render :edit
     end
